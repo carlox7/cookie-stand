@@ -41,6 +41,15 @@ CookieStore.prototype.drawHourlySales = function() {
   }
 };
 
+var blankEl = document.createElement('th');
+blankEl.textContent = ' ';
+salesTable.appendChild(blankEl);
+
+for(var t = 0; t < storeHours.length; t++){
+  var storeTimeEl = document.createElement('td');
+  storeTimeEl.textContent = storeHours[t];
+  salesTable.appendChild(storeTimeEl);
+};
 // CookieStore.prototype.drawHourlySales = function() {
 //   var hoursOpenRowEl = document.createElement('td');
 //   salesTable.appendChild(hoursOpenRowEl);
