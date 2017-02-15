@@ -16,7 +16,7 @@ function CookieStore(name, minHourlyCust, maxHourlyCust, avgCookieSale, hourlyCo
 }
 
 CookieStore.prototype.getAvgCookieCount = function(){
-  var avgCookiesPerHour = Math.floor(Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust) * this.avgCookieSale;
+  var avgCookiesPerHour = Math.floor((Math.random() * (this.maxHourlyCust - this.minHourlyCust) + this.minHourlyCust) * this.avgCookieSale);
   this.hourlyCookies.push(avgCookiesPerHour);
 };
 
@@ -25,8 +25,6 @@ CookieStore.prototype.getHourlyCookies = function() {
   for (var i = 0; i < storeHours.length; i++) {
     Math.floor(this.getAvgCookieCount());
   }
-  var hourlyCookieSalesElement = document.createElement('td');
-  hourlyCookieSalesElement.textContent = this.getHourlyCookies;
 };
 
 CookieStore.prototype.drawHourlySales = function() {
@@ -35,8 +33,20 @@ CookieStore.prototype.drawHourlySales = function() {
   var storeNamesElement = document.createElement('td');
   hourlySalesRowElement.appendChild(storeNamesElement);
   storeNamesElement.textContent = this.name;
+
+  for(var j = 0; j < this.hourlyCookies.length; j++){
+    var hoursOpen = document.createElement('td');
+    hoursOpen.textContent = this.hourlyCookies[j];
+    hourlySalesRowElement.appendChild(hoursOpen);
+  }
 };
 
+// CookieStore.prototype.drawHourlySales = function() {
+//   var hoursOpenRowEl = document.createElement('td');
+//   salesTable.appendChild(hoursOpenRowEl);
+//   var storeHoursEl = document.createElement('td');
+//   hourlySalesRowElement.appendChild(storeNamesElement);
+//   storeNamesElement.textContent = storehours;
 //Setting up instances for Pike Place
 
 var pikePlace = new CookieStore('Pike Place', 23, 65, 6.3);
