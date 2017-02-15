@@ -97,3 +97,29 @@ for (var i = 0; i < stores.length; i++) {
 // }
 //
 // document.body.appendChild(tableEl);
+
+//console.log('--------Event Listeners-------');
+
+var storeFormEl = document.getElementById('new-store-form');
+
+storeFormEl.addEventListener('submit', handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+  event.stopPropagation(); //prevents event bubbling and capturing
+
+  var name = event.target.cookieStoreName.value;
+  var minCustomers = parseInt(event.target.minCust.value);
+  var maxCustomers = parseInt(event.target.maxCust.value);
+  var avgCookies = parseInt(event.target.avgCookies.value);
+
+  // console.log(name);
+  // console.log(minCustomers);
+  // console.log(maxCustomers);
+  // console.log(avgCookies);
+
+  var store = new CookieStore();
+  console.log(store.getAvgCookieCount);
+
+  console.log('User Pressed Submit Button on Form!');
+}

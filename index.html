@@ -3,10 +3,27 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <table id="sales-table">
     </table>
+    <div class="form">
+        <form id="new-store-form">
+          <fieldset>
+            <legend>Enter New Cookie Store Info</legend>
+            <label for="cookieStoreName">Cookie Store Name:</label>
+            <input type="text" name="cookieStoreName">
+            <label for="minCust">Minimum Customers/Hour:</label>
+            <input type="text" name="minCust">
+            <label for="maxCust">Maximum Customers/Hour:</label>
+            <input type="text" name="maxCust">
+            <label for="avgCookies">Average Cookies/Customer</label>
+            <input type="text" name="avgCookies">
+            <button type="submit" name="button">SUBMIT</button>
+          </fieldset>
+        </form>
+    </div>
     <script src="app.js" type="text/javascript"></script>
   </body>
 </html>
